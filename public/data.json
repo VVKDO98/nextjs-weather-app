@@ -1,0 +1,47 @@
+// 20230102115115
+// https://api.openweathermap.org/data/2.5/weather?q=charleroi&appid=f013d08632f75fab5f3d3211add116f0
+
+{
+    "coord": {
+      "lon": 4.4465,
+      "lat": 50.413
+    },
+    "weather": [
+      {
+        "id": 803,
+        "main": "Clouds",
+        "description": "broken clouds",
+        "icon": "04d"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 282.29,
+      "feels_like": 280.55,
+      "temp_min": 281.63,
+      "temp_max": 283.19,
+      "pressure": 1018,
+      "humidity": 93
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 3.13,
+      "deg": 250,
+      "gust": 4.92
+    },
+    "clouds": {
+      "all": 75
+    },
+    "dt": 1672656591,
+    "sys": {
+      "type": 1,
+      "id": 1228,
+      "country": "BE",
+      "sunrise": 1672645352,
+      "sunset": 1672674555
+    },
+    "timezone": 3600,
+    "id": 2800482,
+    "name": "Charleroi",
+    "cod": 200
+  }
