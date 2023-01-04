@@ -60,7 +60,11 @@ export default function Home() {
   return (
     <>
       <main className="w-screen h-screen flex justify-center items-center bg-gradient-to-bl from-zinc-900 to-zinc-700 text-zinc-50 text-lg">
-        <div className="w-1/4 p-8 bg-slate-50/10 rounded-xl shadow-2xl shadow-zinc-800">
+        <div
+          className="w-3/4 h-3/4 lg:w-1/2 lg:h-auto xl:w-1/4
+                    flex flex-col justify-between
+                    p-8 bg-slate-50/10 rounded-xl shadow-2xl shadow-zinc-800"
+        >
           <TopInfos data={data} />
           <Img data={data} />
           <BotInfos data={data} />

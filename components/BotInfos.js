@@ -21,7 +21,10 @@ function BotInfos({ data }) {
         </div>
       </div>
       <div>
-        <span className="text-8xl font-light">
+        <span
+          className="text-6xl sm:text-8xl
+                    font-light"
+        >
           {Math.floor(data.main.temp - 273.15)}°c
         </span>
       </div>
