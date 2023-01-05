@@ -57,9 +57,9 @@ export default function Home() {
   const [inputValue, setInputValue] = useState()
   const [location, setLocation] = useState()
 
-  const { isLoading, error, data } = fetchData(location)
+  const { isLoading, error, data } = fetchWeather(location)
 
-  function fetchData(location){
+  function fetchWeather(location){
     if(location == null){
       location = 'charleroi'
     }
