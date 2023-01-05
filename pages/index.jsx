@@ -57,17 +57,9 @@ export default function Home() {
   const [inputValue, setInputValue] = useState()
   const [location, setLocation] = useState()
 
-  const { isLoading, error, data } = fetchWeather(location)
-
-  function fetchWeather(location){
-    if(location == null){
-      location = 'charleroi'
-    }
-
-    return useFetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${process.env.API_KEY}`
-    )
-  }
+  const { isLoading, error, data } = useFetch(
+    `https://api.openweathermap.org/data/2.5/weather?q=${location ? location : "charleroi"}&appid=${process.env.API_KEY}`
+  )
 
   if (error) return <div>Failed to load</div>;
   if (isLoading) return <div>Loading ..</div>;
