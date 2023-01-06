@@ -70,10 +70,10 @@ export default function Home() {
     <>
       <Head>
         <title>Weather in {data.name}</title>
-        {/* <link
+        <link
           rel="icon"
           href={`http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`}
-        /> */}
+        />
       </Head>
       <main className="relative w-screen h-screen flex justify-center items-center bg-gradient-to-bl from-zinc-900 to-zinc-700 text-zinc-50 text-lg">
         <div
@@ -85,11 +85,18 @@ export default function Home() {
           <Img data={data} />
           <BotInfos data={data} />
         </div>
-        <div className="fixed top-10 right-1/4">
-            <input type="text" onChange={(e) => setInputValue(e.target.value)}/>
-            <button onClick={() => {
-              setLocation(inputValue)
-            }}>Submit</button>
+        <div className="flex flex-row justify-center items-center fixed top-10 lg:top-24">
+            <input 
+              type="text" 
+              onChange={(e) => setInputValue(e.target.value)}
+              className="pl-2 text-zinc-50 bg-zinc-700 rounded-l-md"
+              />
+            <button 
+              onClick={() => {
+                setLocation(inputValue)
+                setInputValue("")
+              }}
+              className="px-2 bg-zinc-600 rounded-r-md">Submit</button>
         </div>
       </main>
     </>
