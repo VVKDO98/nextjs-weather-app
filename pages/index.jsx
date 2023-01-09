@@ -1,68 +1,67 @@
 import useSWR from "swr";
 import TopInfos from "../components/TopInfos";
 import BotInfos from "../components/BotInfos";
-import SearchButton from "../components/SearchButton";
 import Img from "../components/Img";
 import Head from "next/head";
-import SearchInput from "../components/SearchInput";
 import { useEffect, useState } from "react";
 import useFetch from '../hooks/useFetch'
+import Settings from "../components/Settings";
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function Home() {
-  // const data = {
-  //   coord: {
-  //     lon: 4.4465,
-  //     lat: 50.413,
-  //   },
-  //   weather: [
-  //     {
-  //       id: 803,
-  //       main: "Clouds",
-  //       description: "broken clouds",
-  //       icon: "04d",
-  //     },
-  //   ],
-  //   base: "stations",
-  //   main: {
-  //     temp: 282.29,
-  //     feels_like: 280.55,
-  //     temp_min: 281.63,
-  //     temp_max: 283.19,
-  //     pressure: 1018,
-  //     humidity: 93,
-  //   },
-  //   visibility: 10000,
-  //   wind: {
-  //     speed: 3.13,
-  //     deg: 250,
-  //     gust: 4.92,
-  //   },
-  //   clouds: {
-  //     all: 75,
-  //   },
-  //   dt: 1672656591,
-  //   sys: {
-  //     type: 1,
-  //     id: 1228,
-  //     country: "BE",
-  //     sunrise: 1672645352,
-  //     sunset: 1672674555,
-  //   },
-  //   timezone: 3600,
-  //   id: 2800482,
-  //   name: "Charleroi",
-  //   cod: 200,
-  // };
+  const data = {
+    coord: {
+      lon: 4.4465,
+      lat: 50.413,
+    },
+    weather: [
+      {
+        id: 803,
+        main: "Clouds",
+        description: "broken clouds",
+        icon: "04d",
+      },
+    ],
+    base: "stations",
+    main: {
+      temp: 282.29,
+      feels_like: 280.55,
+      temp_min: 281.63,
+      temp_max: 283.19,
+      pressure: 1018,
+      humidity: 93,
+    },
+    visibility: 10000,
+    wind: {
+      speed: 3.13,
+      deg: 250,
+      gust: 4.92,
+    },
+    clouds: {
+      all: 75,
+    },
+    dt: 1672656591,
+    sys: {
+      type: 1,
+      id: 1228,
+      country: "BE",
+      sunrise: 1672645352,
+      sunset: 1672674555,
+    },
+    timezone: 3600,
+    id: 2800482,
+    name: "Charleroi",
+    cod: 200,
+  };
   const [inputValue, setInputValue] = useState()
   const [location, setLocation] = useState()
 
-  const { isLoading, error, data } = useFetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${location ? location : "charleroi"}&appid=${process.env.API_KEY}`
-  )
+  // const { isLoading, error, data } = useFetch(
+  //   `https://api.openweathermap.org/data/2.5/weather?q=${location ? location : "charleroi"}&appid=${process.env.API_KEY}`
+  // )
 
-  if (error) return <div>Failed to load</div>;
-  if (isLoading) return <div>Loading ..</div>;
+  // if (error) return <div>Failed to load</div>;
+  // if (isLoading) return <div>Loading ..</div>;
 
   
 
@@ -89,15 +88,16 @@ export default function Home() {
             <input 
               type="text" 
               onChange={(e) => setInputValue(e.target.value)}
-              className="pl-2 text-zinc-50 bg-zinc-700 rounded-l-md"
+              className="h-10 pl-2 text-zinc-50 bg-zinc-700 rounded-l-md"
               />
             <button 
               onClick={() => {
                 setLocation(inputValue)
                 setInputValue("")
               }}
-              className="px-2 bg-zinc-600 rounded-r-md">Submit</button>
+              className="h-10 px-2 bg-zinc-600 rounded-r-md">Submit</button>
         </div>
+        <Settings/>
       </main>
     </>
   );
