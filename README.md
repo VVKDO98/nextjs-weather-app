@@ -14,7 +14,7 @@ The application has been deployed on Vercel.
 
 - [x] Add an input allowing the user to enter a city.
 - [ ] Weather warnings
-- [ ] Choice of measurement unit (Celsius, Fahrenheit, etc.)
+- [x] Choice of measurement unit (Celsius, Fahrenheit, etc.)
 - [ ] Choice of theme (light or dark)
 - [ ] ...
 
