@@ -56,7 +56,7 @@ export default function Home() {
   };
   const [inputValue, setInputValue] = useState()
   const [location, setLocation] = useState()
-  const [isCelsius, setIsCelcius] = useState(true)
+  const [isMetric, setIsMetric] = useState(true)
 
   // const { isLoading, error, data } = useFetch(
   //   `https://api.openweathermap.org/data/2.5/weather?q=${location ? location : "charleroi"}&appid=${process.env.API_KEY}`
@@ -78,7 +78,7 @@ export default function Home() {
         >
           <TopInfos data={data} />
           <Img data={data} />
-          <BotInfos data={data} isCelsius={isCelsius}/>
+          <BotInfos data={data} isMetric={isMetric}/>
         </div>
         <div className="flex flex-row justify-center items-center fixed top-10 lg:top-24">
             <input 
@@ -93,7 +93,7 @@ export default function Home() {
               }}
               className="h-10 px-2 bg-zinc-600 rounded-r-md">Submit</button>
         </div>
-        <Settings isCelsius={isCelsius} setIsCelcius={setIsCelcius}/>
+        <Settings isMetric={isMetric} setIsMetric={setIsMetric}/>
       </main>
     </>
   );
