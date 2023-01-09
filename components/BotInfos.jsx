@@ -2,13 +2,13 @@ import React from "react";
 import format from "date-fns/format";
 import { BsWind, BsDroplet, BsSun } from "react-icons/bs";
 
-function BotInfos({ data }) {
+function BotInfos({ data, isCelsius }) {
   return (
     <div className="w-full flex flex-row justify-between items-end">
       <div>
         <div className="flex flex-row items-center gap-2">
           <BsWind className="text-zinc-400" />
-          <span>{Math.floor(data.wind.speed * 3.6)} km/h</span>
+          <span>{isCelsius ? `${Math.floor(data.wind.speed * 3.6)}km/h` : `${Math.floor(data.wind.speed)}m/h`}</span>
         </div>
         <div className="flex flex-row items-center gap-2">
           <BsDroplet className="text-zinc-400" />
@@ -25,7 +25,7 @@ function BotInfos({ data }) {
           className="text-6xl sm:text-8xl
                     font-light"
         >
-          {Math.floor(data.main.temp - 273.15)}°c
+          {isCelsius ? `${Math.floor(data.main.temp - 273.15)}°c` : `${Math.floor(((data.main.temp - 273.15) * 9/5 + 32))}°f`}
         </span>
       </div>
     </div>

@@ -6,6 +6,7 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import useFetch from '../hooks/useFetch'
 import Settings from "../components/Settings";
+import Header from "../components/Header";
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function Home() {
@@ -55,6 +56,7 @@ export default function Home() {
   };
   const [inputValue, setInputValue] = useState()
   const [location, setLocation] = useState()
+  const [isCelsius, setIsCelcius] = useState(true)
 
   // const { isLoading, error, data } = useFetch(
   //   `https://api.openweathermap.org/data/2.5/weather?q=${location ? location : "charleroi"}&appid=${process.env.API_KEY}`
@@ -67,13 +69,7 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <title>Weather in {data.name}</title>
-        <link
-          rel="icon"
-          href={`http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`}
-        />
-      </Head>
+      <Header pageTitle={data.name} icon={data.weather[0].icon}/>
       <main className="relative w-screen h-screen flex justify-center items-center bg-gradient-to-bl from-zinc-900 to-zinc-700 text-zinc-50 text-lg">
         <div
           className="w-3/4 h-3/4 lg:w-1/2 lg:h-auto xl:w-1/4
@@ -82,7 +78,7 @@ export default function Home() {
         >
           <TopInfos data={data} />
           <Img data={data} />
-          <BotInfos data={data} />
+          <BotInfos data={data} isCelsius={isCelsius}/>
         </div>
         <div className="flex flex-row justify-center items-center fixed top-10 lg:top-24">
             <input 
@@ -97,7 +93,7 @@ export default function Home() {
               }}
               className="h-10 px-2 bg-zinc-600 rounded-r-md">Submit</button>
         </div>
-        <Settings/>
+        <Settings isCelsius={isCelsius} setIsCelcius={setIsCelcius}/>
       </main>
     </>
   );
