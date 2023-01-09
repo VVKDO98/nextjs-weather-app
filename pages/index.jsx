@@ -57,6 +57,7 @@ export default function Home() {
   const [inputValue, setInputValue] = useState()
   const [location, setLocation] = useState()
   const [isMetric, setIsMetric] = useState(true)
+  const [isDark, setIsDark] = useState(false)
 
   // const { isLoading, error, data } = useFetch(
   //   `https://api.openweathermap.org/data/2.5/weather?q=${location ? location : "charleroi"}&appid=${process.env.API_KEY}`
@@ -93,7 +94,7 @@ export default function Home() {
               }}
               className="h-10 px-2 bg-zinc-600 rounded-r-md">Submit</button>
         </div>
-        <Settings isMetric={isMetric} setIsMetric={setIsMetric}/>
+        <Settings isMetric={isMetric} setIsMetric={setIsMetric} isDark={isDark} setIsDark={setIsDark}/>
       </main>
     </>
   );
