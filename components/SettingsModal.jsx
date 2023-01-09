@@ -14,7 +14,7 @@ function SettingsModal({isOpen, setIsOpen, isMetric, setIsMetric, isDark, setIsD
     
 
   return (
-    <div className={`${isOpen === true ? 'fixed top-0 right-0' : 'fixed top-0 -right-full'}  flex flex-col items-start p-5 w-1/6 h-full bg-slate-50/10 shadow-2xl shadow-zinc-800`}>
+    <div className={`${isOpen === true ? 'fixed top-0 right-0' : 'fixed top-0 -right-full'}  flex flex-col items-start p-5 w-1/6 h-full bg-slate-50/60 dark:bg-slate-50/10 shadow-2xl shadow-zinc-300 dark:shadow-zinc-800 `}>
         <IoCloseOutline className='text-2xl self-end' onClick={() => setIsOpen(false)}/>
         <div className='flex flex-row items-center gap-3'>
           <Switch checked={isMetric} onChange={setIsMetric}
