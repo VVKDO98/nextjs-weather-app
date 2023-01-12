@@ -8,8 +8,8 @@ function SettingsModal({isOpen, setIsOpen, isMetric, setIsMetric, isDark, setIsD
   
   useEffect(() => {
     const html = document.querySelector("html")
-    localStorage.setItem('darkmode', isDark)
     isDark ? html.classList.add("dark") : html.classList.remove('dark')
+    localStorage.setItem('darkmode', isDark)
   },[isDark])
 
   return (

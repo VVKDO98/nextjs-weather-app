@@ -7,7 +7,7 @@ function Settings({isMetric, setIsMetric, isDark, setIsDark}) {
 
   return (
     <div className='fixed bottom-5 right-5'>
-        {!isOpen ? <BsGearFill className='text-2xl' onClick={() => setIsOpen(true)}/> : <BsGearFill className='text-2xl hidden' onClick={() => setIsOpen(true)}/>}
+        {!isOpen ? <BsGearFill tabIndex={3} className='text-2xl' onClick={() => setIsOpen(true)}/> : <BsGearFill tabIndex={3} className='text-2xl hidden' onClick={() => setIsOpen(true)}/>}
         <SettingsModal isOpen={isOpen} setIsOpen={setIsOpen} isMetric={isMetric} setIsMetric={setIsMetric} isDark={isDark} setIsDark={setIsDark}/>
     </div>
   )
